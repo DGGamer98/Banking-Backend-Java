@@ -5,7 +5,9 @@
 package com.mycompany.systembankmanagment.Transformer;
 
 import com.mycompany.systembankmanagment.DTO.ClienteDTO;
+import com.mycompany.systembankmanagment.DTO.ContoCorrenteDTO;
 import com.mycompany.systembankmanagment.model.Cliente;
+import com.mycompany.systembankmanagment.model.ContoCorrente;
 import java.util.logging.Logger;
 
 /**
@@ -40,6 +42,29 @@ public class Transformer {
         
         LOGGER.info("Conversione in DTO avvenuta con successo");
         return clienteDto;
+    }
+    
+    //Metodi per i conti
+    
+    public ContoCorrente fromDtoToModel(ContoCorrenteDTO contoConto) {
+        ContoCorrente conto = new ContoCorrente();
+        
+        
+        conto.setIntestatario(contoConto.getIntestatario());
+        conto.setAttivo(contoConto.isAttivo());
+        
+        
+        return conto;
+    }
+    
+    
+    public ContoCorrenteDTO fromModelToDto(ContoCorrente c) {
+        ContoCorrenteDTO contoDTO = new ContoCorrenteDTO();
+        
+        contoDTO.setIntestatario(c.getIntestatario());
+        contoDTO.setAttivo(c.isAttivo());
+        
+        return contoDTO;
     }
     
 }

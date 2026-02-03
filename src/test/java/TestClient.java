@@ -146,6 +146,8 @@ public class TestClient {
         service.delete(1);
         service.findAll();
         
+
+        
         Assertions.assertNotNull(client);
         
         
