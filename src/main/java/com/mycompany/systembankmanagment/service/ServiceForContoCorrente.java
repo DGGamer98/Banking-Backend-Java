@@ -17,13 +17,19 @@ import java.util.List;
  *
  * @author david
  */
+
+//ilù service si occuperà di gestire le regole di business del nostro software
 public class ServiceForContoCorrente {
     
     private Transformer transformer = new Transformer();
     private ContoCorrenteDAO contoDAO = new ContoCorrenteImplementDAO();
     
     public void create(ContoCorrenteDTO contoDTO) {
-       contoDAO.save(transformer.fromDtoToModel(contoDTO));
+        
+        
+        contoDAO.save(transformer.fromDtoToModel(contoDTO));
+        
+        System.out.println("Dati caricati nella persistenza correttamente");
     }
     
     public ContoCorrenteDTO findById(int id) {
@@ -57,10 +63,5 @@ public class ServiceForContoCorrente {
     public void delete(int id) {
         contoDAO.delete(id);
     }
-    
-    
-    
-    
-    
-    
+
 }
