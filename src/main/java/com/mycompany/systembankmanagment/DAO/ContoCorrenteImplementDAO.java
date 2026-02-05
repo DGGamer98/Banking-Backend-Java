@@ -50,7 +50,9 @@ public class ContoCorrenteImplementDAO implements ContoCorrenteDAO {
 
     @Override
     public void delete(int id) {
+        System.out.println("Entro nel metodo");
         databaseConti.remove(id);
+        System.out.println("Conto eliminato con successo");
     }
 
 }

@@ -87,7 +87,7 @@ public class TestContiCorrenti {
         }
     }
 
-    //Test a basso livello "Non si dovrebbe fare" ma è solo per vedere se l'update funziona
+    //I Test a basso livello "Non si dovrebbe fare" ma è solo per vedere se l'update funziona
     //Qui si lavora solo a livello di business e DTO
     @Test
     public void updateBassoLivelloDAO() {
@@ -104,11 +104,43 @@ public class TestContiCorrenti {
         conto2.setIntestatario("Davide");
         conto2.setSaldo(130);
         conto2.setAttivo(false);
-        
+
         imp.save(conto1);
- 
+
         imp.update(conto2);
-        
-        
+
     }
+
+    @Test
+    public void delete() {
+        Transformer transormer = new Transformer();
+        ContoCorrente conto1 = new ContoCorrente();
+        ContoCorrente conto2 = new ContoCorrente();
+        ContoCorrenteDAO imp = new ContoCorrenteImplementDAO();
+
+        conto1.setId(1);
+        conto1.setIntestatario("Luca");
+        conto1.setSaldo(125);
+        conto1.setAttivo(true);
+
+        conto2.setId(2);
+        conto2.setIntestatario("Davide");
+        conto2.setSaldo(130);
+        conto2.setAttivo(false);
+
+        imp.save(conto1);
+        imp.delete(1);
+        
+        imp.findAll();
+
+        /*
+        //Ulteriore controllo per vedere se il transformer funziona e se i dati sensibili vengono nascosti
+        ContoCorrenteDTO contoDTO1 = transormer.fromModelToDto(conto1);
+        ContoCorrenteDTO contoDTO2 = transormer.fromModelToDto(conto2);
+        
+        service.create(contoDTO1);
+        service.findAll();
+         */
+    }
+
 }

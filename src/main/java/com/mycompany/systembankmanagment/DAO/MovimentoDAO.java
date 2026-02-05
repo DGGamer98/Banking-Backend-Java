@@ -4,10 +4,19 @@
  */
 package com.mycompany.systembankmanagment.DAO;
 
+import com.mycompany.systembankmanagment.model.Movimento;
+import java.util.List;
+
 /**
  *
  * @author david
  */
 public interface MovimentoDAO {
+    void save(Movimento move);
+    Movimento findById(int id);
+    List<Movimento> findAll();
+    void update(Movimento move);
+    void delete(int id);
+    
     
 }
