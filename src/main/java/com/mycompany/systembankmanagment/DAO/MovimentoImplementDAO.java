@@ -32,16 +32,10 @@ public class MovimentoImplementDAO implements MovimentoDAO{
     public List<Movimento> findAll() {
         return new ArrayList<>(databateMovimenti.values());
     }
-    
-    //TODO Davide finire di implementare la logica di persistenza
-    @Override
-    public void update(Movimento move) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
 
     @Override
     public void delete(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        databateMovimenti.remove(id);
     }
     
 }

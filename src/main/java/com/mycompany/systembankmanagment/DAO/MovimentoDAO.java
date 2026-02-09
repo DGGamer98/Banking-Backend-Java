@@ -15,8 +15,6 @@ public interface MovimentoDAO {
     void save(Movimento move);
     Movimento findById(int id);
     List<Movimento> findAll();
-    void update(Movimento move);
     void delete(int id);
-    
-    
+      
 }
